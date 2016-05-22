@@ -1,0 +1,44 @@
+# Start VM
+VBoxManage list vms
+VBoxManage startvm "RoR" --type headless
+
+# Install rvm
+curl -L https://get.rvm.io | bash -s stable
+gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+curl -L https://get.rvm.io | bash -s stable
+source /etc/profile.d/rvm.sh
+rvm list
+
+# Install ruby
+yum update -y
+rvm install 2.2
+
+# Install VirtualBox Guest Client
+yum install epel-release
+yum install dkms
+mkdir /media/cdrom
+mount /dev/cdrom /media/cdrom/
+ls -la /media/cdrom/
+/media/cdrom/VBoxLinuxAdditions.run
+ls -la /media/sf_ror_test/------> Access shared folders
+
+# Install and configure git
+yum install git
+Copy ssh public key to github-ssh-keys
+git remote set-url origin git@github.com:jitendrakrgupta/RoR.git
+git push -u origin master
+
+# Install rails
+rails new hello_app
+git add .
+git commit -m "first commit"
+git push -u origin master
+
+# Create "Hello World app"
+yum install postgresql-libs postgresql-devel -y
+rails new hello_app
+cd hello_app/
+bundle install
+gem install uglifier
+bundle install --without production
+rails server -b 192.168.0.109 -p 3000
