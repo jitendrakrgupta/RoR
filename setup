@@ -15,7 +15,7 @@ rvm install 2.2
 
 # Install VirtualBox Guest Client
 yum install epel-release
-yum install dkms
+yum install dkms nodejs
 mkdir /media/cdrom
 mount /dev/cdrom /media/cdrom/
 ls -la /media/cdrom/
@@ -40,6 +40,6 @@ rails new hello_app
 cd hello_app/
 https://github.com/mhartl/rails_tutorial_3rd_edition_gemfiles/blob/master/hello_app/Gemfile
 bundle install
-gem install uglifier
+gem install uglifier therubyracer
 bundle install --without production
 rails server -b 192.168.0.109 -p 3000
