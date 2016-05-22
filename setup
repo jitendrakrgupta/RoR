@@ -35,6 +35,7 @@ git commit -m "first commit"
 git push -u origin master
 
 # Create "Hello World app"
+# https://github.com/mhartl/rails_tutorial_3rd_edition_gemfiles----->Updated Gemfiles
 yum install postgresql-libs postgresql-devel -y
 rails new hello_app
 cd hello_app/
