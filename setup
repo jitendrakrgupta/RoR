@@ -38,6 +38,7 @@ git push -u origin master
 yum install postgresql-libs postgresql-devel -y
 rails new hello_app
 cd hello_app/
+https://github.com/mhartl/rails_tutorial_3rd_edition_gemfiles/blob/master/hello_app/Gemfile
 bundle install
 gem install uglifier
 bundle install --without production
